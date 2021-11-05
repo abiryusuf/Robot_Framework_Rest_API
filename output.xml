@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.2 on darwin)" generated="20211104 23:59:31.459" rpa="false" schemaversion="2">
+<suite id="s1" name="TC1 GET Request" source="/Users/abiryusuf/Documents/RestApi_Robot/TestCases/TC1_GET_Request.robot">
+<test id="s1-t1" name="Get_weatherInfo">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20211104 23:59:31.581" level="INFO">Creating Session using : alias=myssion, url=https://demoqa.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20211104 23:59:31.580" endtime="20211104 23:59:31.581"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>/utilities/weather/city/${city}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20211104 23:59:31.582" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20211104 23:59:32.159" level="INFO">GET Request : url=https://demoqa.com/utilities/weather/city/New%20York 
+ path_url=/utilities/weather/city/New%20York 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211104 23:59:32.160" level="INFO">GET Response : url=https://demoqa.com/utilities/weather/city/New%20York 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.17.10 (Ubuntu)', 'Date': 'Fri, 05 Nov 2021 03:59:32 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '184', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'ETag': 'W/"b8-fEPYb+s+F6r7QX4yYaFZ5ug/oyo"'} 
+ body={"City":"New York","Temperature":"6 Degree celsius","Humidity":"97 Percent","Weather Description":"scattered clouds","Wind Speed":"177 Km per hour","Wind Direction degree":"85 Degree"} 
+ </msg>
+<msg timestamp="20211104 23:59:32.160" level="INFO">/Users/abiryusuf/Documents/Python_3/RestApi_Robot/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'demoqa.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20211104 23:59:32.160" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211104 23:59:31.582" endtime="20211104 23:59:32.160"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211104 23:59:32.160" endtime="20211104 23:59:32.162"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211104 23:59:32.162" endtime="20211104 23:59:32.163"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211104 23:59:32.163" endtime="20211104 23:59:32.164"/>
+</kw>
+<status status="PASS" starttime="20211104 23:59:31.580" endtime="20211104 23:59:32.164"/>
+</test>
+<status status="PASS" starttime="20211104 23:59:31.462" endtime="20211104 23:59:32.165"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC1 GET Request">TC1 GET Request</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20211104 23:59:31.582" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
